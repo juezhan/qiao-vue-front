@@ -1,0 +1,29 @@
+body
+  background url("/static/images/index-bg.jpg") 50% 0 repeat
+
+.icon-nav
+  display inline-block
+  margin-right 5px
+  background 0 0 no-repeat
+  width 20px
+  height 20px
+  &.icon-user
+    background-image: url('/static/images/icon-user.png')
+  &.icon-edit
+    background-image: url('/static/images/icon-edit.png')
+  &.icon-app
+    background-image: url('/static/images/icon-app.png')
+.container
+  margin 0 auto
+  width 1200px
+  height auto
+  &:after
+    display block
+    content ''
+    clear both
+
+.s-flex
+  display flex
+  .s-flex_item
+    flex 1
+
