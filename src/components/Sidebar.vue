@@ -12,6 +12,7 @@
 
 <script type="text/ecmascript-6">
   export default {
+    name: 'Sidebar',
     props: {
       title: {
         type: String,
@@ -24,8 +25,7 @@
     },
     methods: {
       itemClick(item, index) {
-        item.index = index
-        this.$emit('itemClick', item)
+        this.$emit('itemClick', item, index)
       }
     }
   }

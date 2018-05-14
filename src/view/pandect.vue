@@ -51,10 +51,6 @@
 
 <script type="text/ecmascript-6">
   // 通谱总论
-  import BreadCrumbs from '@/components/BreadCrumbs'
-  import Sidebar from '@/components/Sidebar'
-  import MainArticle from '@/components/MainArticle'
-
   export default {
     data() {
       return {
@@ -124,14 +120,10 @@
           }
         ]
       },
-      itemClick(item) {
+      itemClick(item, index) {
         console.log('item', item)
+        console.log('index', index)
       }
-    },
-    components: {
-      BreadCrumbs,
-      Sidebar,
-      MainArticle
     }
   }
 </script>
@@ -140,8 +132,7 @@
   .pandect
     margin 0 0 164px
     .article
-      padding-top 41px
-      padding-bottom 52px
+      padding 41px 31px 52px
       .w
         &+.w
           margin-top 46px

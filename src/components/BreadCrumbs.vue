@@ -12,6 +12,7 @@
 <script type="text/ecmascript-6">
   // 面包屑
   export default {
+    name: 'BreadCrumbs',
     data() {
       return {}
     }

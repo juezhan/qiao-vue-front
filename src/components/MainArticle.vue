@@ -9,6 +9,7 @@
 
 <script type="text/ecmascript-6">
   export default {
+    name: 'MainArticle',
     props: {
       title: {
         type: String,
@@ -38,6 +39,4 @@
         height 38px
         background url("/static/images/cloud.png") 50% 0 repeat-x
         margin 0 11px 0 43px
-    .cnt
-      padding 0 31px
 </style>

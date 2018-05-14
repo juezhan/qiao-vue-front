@@ -7,7 +7,7 @@
         div.s-flex_item.menu-list
           a(href="/").item 首页
           a(href="/column/pandect").item 通谱总论
-          a.item 新闻动态
+          a(href="/column/news").item 新闻动态
           a.item 风土人情
           a.item 智库留言
           a.item 家谱编修
