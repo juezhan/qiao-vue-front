@@ -5,13 +5,13 @@
     div.navigate
       div.container.s-flex
         div.s-flex_item.menu-list
-          a(href="/").item 首页
-          a(href="/column/pandect").item 通谱总论
-          a(href="/column/news").item 新闻动态
-          a.item 风土人情
+          a.item(href="/") 首页
+          a.item(href="/pandect") 通谱总论
+          a.item(href="/news/newsletter") 新闻动态
+          a.item(href="/customs/hometown") 风土人情
           a.item 智库留言
           a.item 家谱编修
-          a.item 谍谱百科
+          a.item(href="/wiki/format") 谍谱百科
         div.cnt-b
           a.item
             i.icon-nav.icon-user
@@ -42,9 +42,14 @@
     },
     mounted() {
       let pageName = this.$route.params.column || 'home'
+      let menu = this.$route.params.menu || null
       // this.columnName = this.$route.params.column
       // console.log('columnName', this.columnName)
-      this.which = require(`@/view/${pageName}.vue`).default
+      if (menu) {
+        this.which = require(`@/view/${pageName}_${menu}.vue`).default
+      } else {
+        this.which = require(`@/view/${pageName}.vue`).default
+      }
     }
   }
 </script>

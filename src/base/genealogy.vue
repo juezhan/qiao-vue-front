@@ -1,37 +1,38 @@
+<!--
+  新闻动态-模板
+  2018年5月15日21:28:13
+  桑杨
+-->
 <template lang="pug">
   div.news
     bread-crumbs
     div.container
       sidebar(title="新闻动态" v-bind:items="sidebarItems" v-on:itemClick="itemClick")
-      main-article(title="新闻动态—简讯")
+      main-article(v-bind:title="articleTitle")
         div.article(slot="cnt")
-          div.s-flex.item(v-for="i in 10")
-            div.avatar
-              img(src="/static/images/news-img.png")
-            div.s-flex_item.bd
-              div.t 注重修谱文化，弘扬传统精神
-              div.p “前人不修谱，后人不知古。今人不修谱，子孙寻根苦。”……
-              div.d 发布时间：2018年4月19日
-          div.pager
-            span 当前第[1/10]页
-            a 上一页
-            a 1
-            a 2
-            a 3
-            a 4
-            span ……
-            a 5
-            a 6
-            a 下一页
-            a [首页]
-            a [尾页]
+          slot(name="article")
+          pagination(
+          v-bind:total="total"
+          v-bind:display="display"
+          v-bind:current="current"
+          v-on:pageChange="onPageChange"
+          )
 </template>
 
 <script type="text/ecmascript-6">
   // 新闻动态
   export default {
+    props: {
+      articleTitle: {
+        type: String,
+        default: ''
+      }
+    },
     data() {
       return {
+        total: 128,
+        display: 20,
+        current: 1,
         sidebarItems: []
       }
     },
@@ -45,37 +46,42 @@
       getSidebarItems() {
         this.sidebarItems = [
           {
-            anchor: '',
+            path: '/news/newsletter',
+            active: false,
             name: '简讯'
           },
           {
-            anchor: '',
+            path: '/news/reports',
+            active: false,
             name: '报道'
           },
           {
-            anchor: '',
+            path: '/news/announcement',
+            active: false,
             name: '公告'
           },
           {
-            anchor: '',
+            path: '/news/genealogy',
+            active: false,
             name: '家谱简介'
           }
         ]
+        this.sidebarItems.map(item => {
+          item.active = (item.path === this.$route.path)
+        })
+        console.log('this.sidebarItems', this.sidebarItems)
       },
       itemClick(item, index) {
+        window.location.href = item.path
+      },
+      onPageChange(idx) {
+        this.current = idx
       }
     }
   }
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-  .pager
-    text-align center
-    font-size 14px
-    margin-top 33px
-    a,
-    span
-      margin 0 8px
   .news
     margin 0 0 44px
     .article

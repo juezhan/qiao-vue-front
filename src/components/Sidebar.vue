@@ -7,7 +7,7 @@
   div.sidebar
     div.tit {{title}}
     div.list
-      div.item(v-for="(item,index) in items" v-bind:key="item.name" v-on:click="itemClick(item,index)") {{item.name}}
+      div.item(v-for="(item,index) in items" v-bind:key="item.name" v-on:click="itemClick(item,index)" v-bind:class="{'active':item.active}") {{item.name}}
 </template>
 
 <script type="text/ecmascript-6">

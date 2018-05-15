@@ -14,8 +14,13 @@ export default new Router({
       component: index
     },
     {
-      path: '/column/:column',
+      path: '/:column',
       name: 'Column',
+      component: index
+    },
+    {
+      path: '/:column/:menu',
+      name: 'menu',
       component: index
     },
     {
