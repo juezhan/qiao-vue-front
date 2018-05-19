@@ -9,7 +9,7 @@
           a.item(href="/pandect") 通谱总论
           a.item(href="/news/newsletter") 新闻动态
           a.item(href="/customs/hometown") 风土人情
-          a.item 智库留言
+          a.item(href="/message/talk") 智库留言
           a.item 家谱编修
           a.item(href="/wiki/format") 谍谱百科
         div.cnt-b

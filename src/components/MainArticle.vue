@@ -5,6 +5,7 @@
       |{{title}}
     div.cnt
       slot(name="cnt")
+      slot
 </template>
 
 <script type="text/ecmascript-6">
